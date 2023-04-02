@@ -1,0 +1,226 @@
+/*
+
+  https://neotap.net
+  made with ❤ from neo
+
+*/
+
+/* util */
+:root {
+   --font: -apple-system, BlinkMacSystemFont, 'consolas', sans-serif;
+   --text-h1: #fff;
+   --text-h2: #707070;
+   --text-h3: #505050;
+   --bg-h1: #202020;
+   --bg-h2: #303030;
+   --transition: 0.2s ease;
+   --gradient-speed: 10s;
+}
+@media (prefers-color-scheme: light) {
+   :root {
+      --text-h1: #000;
+      --text-h2: #7a7a7a;
+      --text-h3: #606060;
+      --bg-h1: #fff;
+      --bg-h2: #eee;
+   }
+   .settings {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+   }
+}
+* {
+   margin: 0;
+   padding: 0;
+   outline: none;
+   user-select: none;
+   font-family: var(--font);
+}
+button {
+   background-color: transparent;
+   border: none;
+   outline: none;
+}
+html,
+body,
+.mount {
+   height: 100%;
+   width: 100%;
+   background-color: var(--bg-h1);
+   overflow: hidden;
+}
+.mount {
+   display: grid;
+   place-items: center;
+   background-image: url('');
+   background-size: cover;
+   image-rendering: auto;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.settings-toggled {
+   display: none !important;
+}
+
+/* main */
+#title {
+   z-index: 1;
+   font-size: 5em;
+   font-weight: 800;
+   user-select: none;
+   color: #fff;
+}
+#date {
+   z-index: 1;
+   font-size: 1.4em;
+   font-weight: 400;
+}
+
+@media (max-width: 900px) {
+   #title {
+      font-size: 10vw;
+   }
+}
+
+/* settings */
+.settings {
+   z-index: 4;
+   display: none;
+   position: absolute;
+   padding: 50px 0;
+   width: 30vw;
+   min-width: 450px;
+   background-color: var(--bg-h2);
+   border-radius: 10px;
+}
+.settings-x {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   fill: var(--text-h2);
+   transition: var(--transition);
+}
+.settings-x:hover {
+   fill: var(--text-h1);
+   cursor: pointer;
+}
+.setting {
+   padding: 5px 50px;
+   font-size: 1.25em;
+   font-weight: normal;
+   color: var(--text-h2);
+   fill: var(--text-h2);
+   display: flex;
+   gap: 10px;
+   transition: var(--transition);
+   align-items: center;
+}
+.setting:hover {
+   background-color: var(--text-h1);
+   cursor: pointer;
+}
+input {
+   outline: none;
+   border: none;
+   font-size: 1em;
+   font-weight: normal;
+   color: var(--text-h2);
+   transition: var(--transition);
+   background-color: transparent;
+   display: flex;
+}
+input::placeholder {
+   color: var(--text-h2);
+}
+input[type='color'] {
+   min-width: 24px;
+   width: 24px;
+   min-height: 24px;
+   height: 24px;
+}
+input[type='color']::-webkit-color-swatch-wrapper {
+   padding: 0;
+   margin: 0;
+}
+input[type='color']::-webkit-color-swatch {
+   border: 2px solid var(--text-h2);
+   border-radius: 5px;
+}
+input[type='file'] {
+   display: none;
+}
+select {
+   color: var(--bg-h2);
+   border: none;
+   outline: none;
+   border-radius: 5px;
+   padding: 4px;
+   font-size: 0.8em;
+   font-weight: bold;
+   background-color: var(--text-h2);
+}
+label {
+   display: flex;
+   gap: 10px;
+   cursor: pointer;
+}
+
+/* icons */
+.icons {
+   z-index: 3;
+   top: -29px;
+   left: 0;
+   position: absolute;
+   display: flex;
+   margin: 5px;
+   height: 48px;
+   gap: 5px;
+   transition: var(--transition);
+}
+.icons:hover {
+   top: 0 !important;
+}
+.icon {
+   fill: var(--text-h3);
+   display: flex;
+   outline: none;
+   font-size: 1.2em;
+   border: none;
+   background-color: transparent;
+   transition: var(--transition);
+}
+.icon:hover,
+.icon:focus-visible {
+   fill: var(--text-h2);
+   cursor: pointer;
+}
+
+/* animations */
+.swipe-in {
+   animation: anim-swipe-in 0.3s ease forwards;
+}
+.swipe-out {
+   animation: anim-swipe-out 0.3s ease forwards;
+}
+@keyframes anim-swipe-in {
+   0% {
+      opacity: 0;
+      transform: rotate(5deg) translateY(100px);
+   }
+   100% {
+      opacity: 1;
+      transform: rotate(0) translateY(0);
+   }
+}
+@keyframes anim-swipe-out {
+   0% {
+      opacity: 1;
+      transform: rotate(0) translateY(0);
+   }
+   65% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 0;
+      transform: rotate(5deg) translateY(100px);
+   }
+}

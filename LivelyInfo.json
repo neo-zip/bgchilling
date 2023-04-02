@@ -1,0 +1,15 @@
+{
+   "AppVersion": "1.0.0.0",
+   "Title": "bgchilling",
+   "Thumbnail": "preview.png",
+   "Preview": "preview.png",
+   "Desc": "test wallpaper",
+   "Author": "neo",
+   "License": "MIT",
+   "Contact": "https://neotap.dev",
+   "Type": 1,
+   "FileName": "index.html",
+   "Arguments": null,
+   "IsAbsolutePath": false,
+   "IsNeedLicense": true
+}
